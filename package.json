@@ -14,8 +14,8 @@
     "web-vitals": "^2.1.4"
   },
   "scripts": {
-    "start": "node_modules/cross-env/dist/bin/cross-env NODE_ENV=development webpack serve --config config/webpack.dev.js",
-    "build": "node_modules/cross-env/dist/bin/cross-env NODE_ENV=production webpack --config config/webpack.prod.js",
+    "start": "cross-env NODE_ENV=development webpack serve --config config/webpack.dev.js",
+    "build": "cross-env NODE_ENV=production webpack --config config/webpack.prod.js",
     "test": "react-scripts test",
     "eject": "react-scripts eject"
   },
