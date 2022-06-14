@@ -1,3 +1,4 @@
+/* This function display the result fetched by PostalCodeAutoComplete component */
 import React from "react";
 const PostalCodeAutoCompleteResult = (props) => {
   const { data, onCodeSelect } = props;

@@ -1,3 +1,6 @@
+/* This file holds all apis endpoints and returns the result  
+    also a comment*/
+/* This function returns postal codes for auto complete*/
 function getPostalCodes(postalCode) {
   return fetch(
     `https://aqx055dr37.execute-api.us-east-1.amazonaws.com/dev/codes/${postalCode}`,
@@ -16,6 +19,7 @@ function getPostalCodes(postalCode) {
     })
     .catch((error) => console.warn(error));
 }
+/* This function returns postal codes details single  postal code*/
 function getPostalCodeDetails(postalCode) {
   return fetch(
     `https://aqx055dr37.execute-api.us-east-1.amazonaws.com/dev/codes/details/${postalCode}`,

@@ -28,7 +28,16 @@ module.exports = merge(common, {
             },
           },
           "postcss-loader",
-          "sass-loader",
+          {
+            loader: "sass-loader",
+            options: {
+              sassOptions: {
+                webpackImporter: false,
+                includePaths: ["node_modules"],
+              },
+              implementation: require("dart-sass"),
+            },
+          },
         ],
       },
     ],

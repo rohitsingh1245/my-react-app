@@ -1,5 +1,7 @@
+/* This function display the result of details api when user clickes on posta code list */
 import React, { useState, useCallback, useEffect } from "react";
 import { getPostalCodeDetails } from "../services/apiService";
+import Loader from "./Loader";
 const PostalCodeDetails = React.memo((props) => {
   const [detail, setDetail] = useState({});
   const [isFetching, setFetching] = useState(false);
@@ -33,33 +35,36 @@ const PostalCodeDetails = React.memo((props) => {
     <React.Fragment>
       {!isFetching ? (
         detail && (
-          <div className="container">
-            <div className="row">
-              <span>Postal Code Details</span>
-            </div>
-            <div className="row">
-              <div className="column">Country: {detail.country}</div>
-            </div>
-            <div className="row">
-              <div className="column">Region: {detail.region}</div>
-            </div>
-            <div className="row">
-              <div className="column">
-                Admin District: {detail.adminDistrict}
+          <>
+            <div
+              className="card"
+              style={{
+                width: "18rem",
+                textAlign: "left",
+                width: "100%",
+                marginTop: "20px",
+              }}
+            >
+              <div className="card-header">
+                Postal Code Details:{selectedCode}
               </div>
+              <ul className="list-group list-group-flush">
+                <li className="list-group-item">Country: {detail.country}</li>
+                <li className="list-group-item">Region: {detail.region}</li>
+                <li className="list-group-item">
+                  Admin District: {detail.adminDistrict}
+                </li>
+                <li className="list-group-item">
+                  Parliamentary Constituency: {detail.parliamentaryConstituency}
+                </li>
+                <li className="list-group-item">Area: {detail.area}</li>
+              </ul>
             </div>
-            <div className="row">
-              <div className="column">
-                Parliamentary Constituency: {detail.parliamentaryConstituency}
-              </div>
-            </div>
-            <div className="row">
-              <div className="column">Area: {detail.area}</div>
-            </div>
-          </div>
+          </>
         )
       ) : (
-        <div>Loading... please wait</div>
+        //display loader while loading
+        <Loader />
       )}
     </React.Fragment>
   );
